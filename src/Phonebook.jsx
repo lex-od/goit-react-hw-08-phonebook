@@ -7,6 +7,7 @@ import Container from './components/Container';
 import ContactForm from './components/ContactForm';
 import Filter from './components/Filter';
 import ContactList from './components/ContactList';
+import AppBar from './components/AppBar';
 import { contactsSls, contactsOps } from './redux/contacts';
 
 const Phonebook = ({ isLoading, error }) => {
@@ -18,6 +19,8 @@ const Phonebook = ({ isLoading, error }) => {
 
     return (
         <Container>
+            <AppBar />
+
             <h1 className={css.telBookTitle}>Телефонная книга</h1>
             <ContactForm />
 

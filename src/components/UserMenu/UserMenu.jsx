@@ -3,8 +3,8 @@ import css from './UserMenu.module.scss';
 // import { authSelectors, authOperations } from '../../redux/auth';
 
 const UserMenu = ({ name, dispLogout }) => (
-    <div style={css.container}>
-        <span style={css.name}>Добро пожаловать, {name}</span>
+    <div className={css.container}>
+        <span className={css.name}>Добро пожаловать, {name}</span>
         <button type="button" onClick={dispLogout}>
             Выйти
         </button>

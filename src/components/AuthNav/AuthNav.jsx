@@ -3,10 +3,18 @@ import css from './AuthNav.module.scss';
 
 const AuthNav = () => (
     <div>
-        <NavLink to="/register" style={css.link} activeStyle={css.activeLink}>
+        <NavLink
+            to="/register"
+            className={css.link}
+            activeClassName={css.activeLink}
+        >
             Регистрация
         </NavLink>
-        <NavLink to="/login" style={css.link} activeStyle={css.activeLink}>
+        <NavLink
+            to="/login"
+            className={css.link}
+            activeClassName={css.activeLink}
+        >
             Логин
         </NavLink>
     </div>
