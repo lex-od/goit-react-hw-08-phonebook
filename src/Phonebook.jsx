@@ -6,14 +6,13 @@ import css from './styles/Phonebook.module.scss';
 import ContactForm from './components/ContactForm';
 import Filter from './components/Filter';
 import ContactList from './components/ContactList';
-import { loadContacts } from './redux/contacts/contactsOperations';
-import { contactsSelectors } from './redux/contacts';
+import { contactsSls, contactsOps } from './redux/contacts';
 
 const Phonebook = ({ isLoading, error }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(loadContacts());
+        dispatch(contactsOps.loadContacts());
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
@@ -52,12 +51,8 @@ Phonebook.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    isLoading: contactsSelectors.getLoading(state),
-    error: contactsSelectors.getError(state),
+    isLoading: contactsSls.getLoading(state),
+    error: contactsSls.getError(state),
 });
 
 export default connect(mapStateToProps)(Phonebook);
-
-// const mapDispatchToProps = dispatch => ({
-//     dispLoadContacts: () => dispatch(loadContacts()),
-// });

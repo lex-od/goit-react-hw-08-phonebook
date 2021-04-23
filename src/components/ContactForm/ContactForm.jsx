@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import css from './ContactForm.module.scss';
 import config from '../../json/ContactFormConfig.json';
-import { addContact } from '../../redux/contacts/contactsOperations';
-import { contactsSelectors } from '../../redux/contacts/';
+import { contactsSls, contactsOps } from '../../redux/contacts/';
 
 class ContactForm extends Component {
     static propTypes = {
@@ -85,11 +84,11 @@ class ContactForm extends Component {
 }
 
 const mapStateToProps = state => ({
-    contacts: contactsSelectors.getAllContacts(state),
+    contacts: contactsSls.getAllContacts(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-    dispSubmit: contact => dispatch(addContact(contact)),
+    dispSubmit: contact => dispatch(contactsOps.addContact(contact)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);

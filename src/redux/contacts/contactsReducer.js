@@ -1,6 +1,8 @@
 import { createReducer, combineReducers } from '@reduxjs/toolkit';
-import { changeFilter } from './contactsActions';
-import { addContact, deleteContact, loadContacts } from './contactsOperations';
+import { contactsActs, contactsOps } from './';
+
+const { changeFilter } = contactsActs;
+const { loadContacts, addContact, deleteContact } = contactsOps;
 
 const itemsReducer = createReducer([], {
     [loadContacts.fulfilled]: (_, { payload }) => payload,
@@ -46,51 +48,3 @@ export default combineReducers({
     loading: loadingReducer,
     error: errorReducer,
 });
-
-// 🙀 Вариант без createAsyncThunk
-
-// import {
-//     loadContactsRequest,
-//     loadContactsSuccess,
-//     loadContactsError,
-//     addContactRequest,
-//     addContactSuccess,
-//     addContactError,
-//     deleteContactRequest,
-//     deleteContactSuccess,
-//     deleteContactError,
-// } from './contactsActions';
-
-// const itemsReducer = createReducer([], {
-//     [loadContactsSuccess]: (_, { payload }) => payload,
-
-//     [addContactSuccess]: (state, { payload }) => [...state, payload],
-
-//     [deleteContactSuccess]: (state, { payload }) =>
-//         state.filter(({ id }) => id !== payload),
-// });
-
-// const loadingReducer = createReducer(false, {
-//     [loadContactsRequest]: () => true,
-//     [loadContactsSuccess]: () => false,
-//     [loadContactsError]: () => false,
-
-//     [addContactRequest]: () => true,
-//     [addContactSuccess]: () => false,
-//     [addContactError]: () => false,
-
-//     [deleteContactRequest]: () => true,
-//     [deleteContactSuccess]: () => false,
-//     [deleteContactError]: () => false,
-// });
-
-// const errorReducer = createReducer(null, {
-//     [loadContactsRequest]: () => null,
-//     [loadContactsError]: (_, { payload }) => payload,
-
-//     [addContactRequest]: () => null,
-//     [addContactError]: (_, { payload }) => payload,
-
-//     [deleteContactRequest]: () => null,
-//     [deleteContactError]: (_, { payload }) => payload,
-// });

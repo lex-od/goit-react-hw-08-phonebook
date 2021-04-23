@@ -1,9 +1,8 @@
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import css from './ContactList.module.scss';
-import { deleteContact } from '../../redux/contacts/contactsOperations';
 import ContactItem from '../ContactItem';
-import { contactsSelectors } from '../../redux/contacts';
+import { contactsSls, contactsOps } from '../../redux/contacts';
 
 const ContactList = ({ contacts, dispItemBtnClick }) => (
     <ul>
@@ -25,11 +24,11 @@ ContactList.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    contacts: contactsSelectors.getFilteredContacts(state),
+    contacts: contactsSls.getFilteredContacts(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-    dispItemBtnClick: id => dispatch(deleteContact(id)),
+    dispItemBtnClick: id => dispatch(contactsOps.deleteContact(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactList);

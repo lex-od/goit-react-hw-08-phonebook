@@ -8,7 +8,7 @@ import {
     PURGE,
     REGISTER,
 } from 'redux-persist';
-import contactsReducer from './contacts/contactsReducer';
+import { contactsReducer } from './contacts';
 
 const middleware = [
     ...getDefaultMiddleware({
@@ -32,20 +32,3 @@ export {
     store,
     // persistor
 };
-
-// 🙀 С createAsyncThunk() нет необходимости добавлять
-// экшены в игнор: ошибка приходит "нормального" типа
-
-// import {
-//     loadContactsError,
-//     addContactError,
-//     deleteContactError,
-// } from './contacts/contactsActions';
-
-// const errorActions = [
-//     loadContactsError.type,
-//     addContactError.type,
-//     deleteContactError.type,
-// ];
-
-// ...errorActions,
