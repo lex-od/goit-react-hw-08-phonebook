@@ -3,6 +3,7 @@ import { connect, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import Loader from 'react-loader-spinner';
 import css from './styles/Phonebook.module.scss';
+import Container from './components/Container';
 import ContactForm from './components/ContactForm';
 import Filter from './components/Filter';
 import ContactList from './components/ContactList';
@@ -16,7 +17,7 @@ const Phonebook = ({ isLoading, error }) => {
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
-        <div className="container">
+        <Container>
             <h1 className={css.telBookTitle}>Телефонная книга</h1>
             <ContactForm />
 
@@ -41,7 +42,7 @@ const Phonebook = ({ isLoading, error }) => {
             )}
 
             <ContactList />
-        </div>
+        </Container>
     );
 };
 
