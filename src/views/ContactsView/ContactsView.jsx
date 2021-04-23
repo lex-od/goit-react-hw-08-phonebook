@@ -16,7 +16,7 @@ const ContactsView = ({ isLoading, error }) => {
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
-        <>
+        <div>
             <h1 className={css.telBookTitle}>Телефонная книга</h1>
             <ContactForm />
 
@@ -41,7 +41,7 @@ const ContactsView = ({ isLoading, error }) => {
             )}
 
             <ContactList />
-        </>
+        </div>
     );
 };
 
