@@ -28,11 +28,25 @@ const logIn = createAsyncThunk('auth/login', async credentials => {
     return data;
 });
 
-const logOut = createAsyncThunk('auth/logout', async credentials => {
+const logOut = createAsyncThunk('auth/logout', async () => {
     await axios.post('/users/logout');
 
     token.unset();
 });
 
-const authOperations = { register, logIn, logOut };
+const getCurrentUser = createAsyncThunk(
+    'auth/getCurrentUser',
+    async () => (await axios.get('/users/current')).data,
+    {
+        condition: (_, { getState }) => {
+            const persistedToken = getState().auth.token;
+
+            if (!persistedToken) return false;
+
+            token.set(persistedToken);
+        },
+    },
+);
+
+const authOperations = { register, logIn, logOut, getCurrentUser };
 export default authOperations;
