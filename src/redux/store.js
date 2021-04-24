@@ -8,6 +8,7 @@ import {
     PURGE,
     REGISTER,
 } from 'redux-persist';
+import { authReducer } from './auth';
 import { contactsReducer } from './contacts';
 
 const middleware = [
@@ -20,6 +21,7 @@ const middleware = [
 
 const store = configureStore({
     reducer: {
+        auth: authReducer,
         contacts: contactsReducer,
     },
     middleware,
