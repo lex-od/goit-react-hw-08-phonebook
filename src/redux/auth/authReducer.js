@@ -10,7 +10,7 @@ const user = createReducer(initUserState, {
     [register.fulfilled]: (_, { payload }) => payload.user,
     [logIn.fulfilled]: (_, { payload }) => payload.user,
     [logOut.fulfilled]: () => initUserState,
-    // [authActions.getCurrentUserSuccess]: (_, { payload }) => payload,
+    // [authActions.fulfilled]: (_, { payload }) => payload,
 });
 
 const token = createReducer(null, {
@@ -20,10 +20,17 @@ const token = createReducer(null, {
 });
 
 const error = createReducer(null, {
+    [register.pending]: () => null,
     [register.rejected]: (_, { error }) => error,
+
+    [logIn.pending]: () => null,
     [logIn.rejected]: (_, { error }) => error,
+
+    [logOut.pending]: () => null,
     [logOut.rejected]: (_, { error }) => error,
-    // [authActions.getCurrentUserError]: (_, { payload }) => payload,
+
+    // [authActions.pending]: () => null,
+    // [authActions.rejected]: (_, { error }) => error,
 });
 
 export default combineReducers({
