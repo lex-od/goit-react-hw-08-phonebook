@@ -1,6 +1,6 @@
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import css from './UserMenu.module.scss';
-// import { authSelectors, authOperations } from '../../redux/auth';
+import { authSls, authOps } from '../../redux/auth';
 
 const UserMenu = ({ name, dispLogout }) => (
     <div className={css.container}>
@@ -10,13 +10,13 @@ const UserMenu = ({ name, dispLogout }) => (
         </button>
     </div>
 );
-// const mapStateToProps = state => ({
-//     name: authSelectors.getUsername(state),
-// });
 
-// const mapDispatchToProps = {
-//     dispLogout: authOperations.logOut,
-// };
+const mapStateToProps = state => ({
+    name: authSls.getUsername(state),
+});
 
-export default UserMenu;
-// export default connect(mapStateToProps, mapDispatchToProps)(UserMenu);
+const mapDispatchToProps = {
+    dispLogout: authOps.logOut,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserMenu);

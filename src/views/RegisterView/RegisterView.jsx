@@ -1,7 +1,7 @@
 import { Component } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import css from './RegisterView.module.scss';
-// import { authOperations } from '../redux/auth';
+import { authOps } from '../../redux/auth';
 
 class RegisterView extends Component {
     state = {
@@ -17,7 +17,7 @@ class RegisterView extends Component {
     handleSubmit = e => {
         e.preventDefault();
 
-        this.props.onRegister(this.state);
+        this.props.dispRegister(this.state);
 
         this.setState({ name: '', email: '', password: '' });
     };
@@ -71,9 +71,8 @@ class RegisterView extends Component {
     }
 }
 
-// const mapDispatchToProps = {
-//     onRegister: authOperations.register,
-// };
+const mapDispatchToProps = {
+    dispRegister: authOps.register,
+};
 
-export default RegisterView;
-// export default connect(null, mapDispatchToProps)(RegisterView);
+export default connect(null, mapDispatchToProps)(RegisterView);

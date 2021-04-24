@@ -1,28 +1,28 @@
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
-// import { authOps } from './';
+import { authOps } from './';
 
-// const { register, logIn, logOut } = authOps;
+const { register, logIn, logOut } = authOps;
 
 const initUserState = { name: null, email: null };
 
 const user = createReducer(initUserState, {
-    // [authActions.registerSuccess]: (_, { payload }) => payload.user,
-    // [authActions.loginSuccess]: (_, { payload }) => payload.user,
-    // [authActions.logoutSuccess]: () => initUserState,
+    [register.fulfilled]: (_, { payload }) => payload.user,
+    [logIn.fulfilled]: (_, { payload }) => payload.user,
+    [logOut.fulfilled]: () => initUserState,
     // [authActions.getCurrentUserSuccess]: (_, { payload }) => payload,
 });
 
 const token = createReducer(null, {
-    // [authActions.registerSuccess]: (_, { payload }) => payload.token,
-    // [authActions.loginSuccess]: (_, { payload }) => payload.token,
-    // [authActions.logoutSuccess]: () => null,
+    [register.fulfilled]: (_, { payload }) => payload.token,
+    [logIn.fulfilled]: (_, { payload }) => payload.token,
+    [logOut.fulfilled]: () => null,
 });
 
 const error = createReducer(null, {
-    // [authActions.registerError]: (_, { payload }) => payload,
-    // [authActions.loginError]: (_, { payload }) => payload,
-    // [authActions.logoutError]: (_, { payload }) => payload,
+    [register.rejected]: (_, { error }) => error,
+    [logIn.rejected]: (_, { error }) => error,
+    [logOut.rejected]: (_, { error }) => error,
     // [authActions.getCurrentUserError]: (_, { payload }) => payload,
 });
 
