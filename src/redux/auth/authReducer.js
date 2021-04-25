@@ -13,6 +13,19 @@ const user = createReducer(initUserState, {
     [getCurrentUser.fulfilled]: (_, { payload }) => payload,
 });
 
+const isAuth = createReducer(false, {
+    [register.fulfilled]: () => true,
+    // [register.rejected]: () => false,
+
+    [logIn.fulfilled]: () => true,
+    // [logIn.rejected]: () => false,
+
+    [logOut.fulfilled]: () => false,
+
+    [getCurrentUser.fulfilled]: () => true,
+    // [getCurrentUser.rejected]: () => false,
+});
+
 const token = createReducer(null, {
     [register.fulfilled]: (_, { payload }) => payload.token,
     [logIn.fulfilled]: (_, { payload }) => payload.token,
@@ -34,6 +47,7 @@ const error = createReducer(null, {
 
 export default combineReducers({
     user,
+    isAuth,
     token,
     error,
 });
