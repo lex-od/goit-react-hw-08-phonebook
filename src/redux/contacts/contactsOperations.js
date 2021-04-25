@@ -1,8 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// axios.defaults.baseURL = 'http://localhost:4040';
-
 const loadContacts = createAsyncThunk(
     'contacts/loadContacts',
     async () => (await axios.get('/contacts')).data,
