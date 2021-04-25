@@ -1,22 +1,20 @@
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import css from './UserMenu.module.scss';
 import { authSls, authOps } from '../../redux/auth';
 
-const UserMenu = ({ name, dispLogout }) => (
-    <div className={css.container}>
-        <span className={css.name}>Добро пожаловать, {name}</span>
-        <button type="button" onClick={dispLogout}>
-            Выйти
-        </button>
-    </div>
-);
+const UserMenu = () => {
+    const dispatch = useDispatch();
 
-const mapStateToProps = state => ({
-    name: authSls.getUsername(state),
-});
+    const email = useSelector(authSls.getUserEmail);
 
-const mapDispatchToProps = {
-    dispLogout: authOps.logOut,
+    return (
+        <div className={css.container}>
+            <span className={css.email}>{email}</span>
+            <button type="button" onClick={() => dispatch(authOps.logOut())}>
+                Выйти
+            </button>
+        </div>
+    );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserMenu);
+export default UserMenu;

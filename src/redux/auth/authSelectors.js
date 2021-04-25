@@ -1,6 +1,6 @@
 const getIsAuth = state => state.auth.isAuth;
 
-const getUsername = state => state.auth.user.name;
+const getUserEmail = state => state.auth.user.email;
 
-const authSelectors = { getIsAuth, getUsername };
+const authSelectors = { getIsAuth, getUserEmail };
 export default authSelectors;
