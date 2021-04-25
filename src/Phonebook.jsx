@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import routes from './routes';
 import Container from './components/Container';
 import AppBar from './components/AppBar';
+import PrivateRoute from './components/PrivateRoute';
 import RegisterView from './views/RegisterView';
 import ContactsView from './views/ContactsView';
 import LoginView from './views/LoginView';
@@ -24,7 +25,11 @@ const Phonebook = () => {
 
             <Switch>
                 <Route exact path={routes.home} component={HomeView} />
-                <Route path={routes.contacts} component={ContactsView} />
+                <PrivateRoute
+                    path={routes.contacts}
+                    redirectTo={routes.login}
+                    component={ContactsView}
+                />
                 <Route path={routes.register} component={RegisterView} />
                 <Route path={routes.login} component={LoginView} />
                 <Redirect to={routes.home} />
