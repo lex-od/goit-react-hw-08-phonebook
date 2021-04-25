@@ -10,6 +10,8 @@ import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import { authOps } from './redux/auth';
 
+const { HOME, CONTACTS, REGISTER, LOGIN } = routes;
+
 const HomeView = lazy(() => import('./views/HomeView'));
 const RegisterView = lazy(() => import('./views/RegisterView'));
 const LoginView = lazy(() => import('./views/LoginView'));
@@ -28,29 +30,25 @@ const Phonebook = () => {
 
             <Suspense fallback={<p>Загрузка...</p>}>
                 <Switch>
+                    <PublicRoute exact path={HOME} component={HomeView} />
                     <PublicRoute
-                        exact
-                        path={routes.home}
-                        component={HomeView}
-                    />
-                    <PublicRoute
-                        path={routes.register}
+                        path={REGISTER}
                         restricted
-                        redirectTo={routes.contacts}
+                        redirectTo={CONTACTS}
                         component={RegisterView}
                     />
                     <PublicRoute
-                        path={routes.login}
+                        path={LOGIN}
                         restricted
-                        redirectTo={routes.contacts}
+                        redirectTo={CONTACTS}
                         component={LoginView}
                     />
                     <PrivateRoute
-                        path={routes.contacts}
-                        redirectTo={routes.login}
+                        path={CONTACTS}
+                        redirectTo={LOGIN}
                         component={ContactsView}
                     />
-                    <Redirect to={routes.home} />
+                    <Redirect to={HOME} />
                 </Switch>
             </Suspense>
         </Container>

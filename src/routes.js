@@ -1,8 +1,8 @@
 const routes = {
-    home: '/',
-    contacts: '/contacts',
-    register: '/register',
-    login: '/login',
+    HOME: '/',
+    CONTACTS: '/contacts',
+    REGISTER: '/register',
+    LOGIN: '/login',
 };
 
 export default routes;
