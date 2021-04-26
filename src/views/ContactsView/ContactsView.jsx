@@ -16,30 +16,29 @@ const ContactsView = ({ isLoading, error }) => {
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
-        <div>
-            <h1 className={css.telBookTitle}>Телефонная книга</h1>
+        <div className={css.contactsView}>
+            <h1 className={css.contactsTitle}>Мои контакты</h1>
+
+            <h2 className={css.addContactTitle}>Добавить</h2>
             <ContactForm />
 
-            <h2 className={css.contactsTitle}>Контакты</h2>
+            <h2 className={css.contactListTitle}>Список</h2>
             <Filter />
-
             {isLoading && (
                 <Loader
                     type="ThreeDots"
-                    color="#08d82b"
+                    color="#ffcf4d"
                     // height={50}
-                    width={120}
+                    width={100}
                     timeout={0}
                     className={css.loader}
                 />
             )}
-
             {error && (
                 <p className={css.error}>
                     Что-то пошло не так! {error.name}: {error.message}
                 </p>
             )}
-
             <ContactList />
         </div>
     );
