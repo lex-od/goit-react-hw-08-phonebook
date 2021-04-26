@@ -10,7 +10,11 @@ const UserMenu = () => {
     return (
         <div className={css.container}>
             <span className={css.email}>{email}</span>
-            <button type="button" onClick={() => dispatch(authOps.logOut())}>
+            <button
+                type="button"
+                onClick={() => dispatch(authOps.logOut())}
+                className={css.logoutBtn}
+            >
                 Выйти
             </button>
         </div>

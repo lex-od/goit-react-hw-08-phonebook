@@ -4,6 +4,22 @@
 }
 
 .email {
-    font-weight: 700;
-    margin-right: 12px;
+    margin-right: 15px;
+
+    font-weight: 500;
+}
+
+.logoutBtn {
+    background-color: #e6d7ae;
+    border: 2px solid #adaca4;
+
+    border-radius: 3px;
+    cursor: pointer;
+
+    font-weight: 500;
+    color: #272424;
+
+    &:hover {
+        background-color: #ffc966;
+    }
 }

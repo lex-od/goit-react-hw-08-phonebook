@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { Redirect, Switch } from 'react-router';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import Loader from 'react-loader-spinner';
 // import css from './styles/Phonebook.module.scss';
 import routes from './routes';
 import Container from './components/Container';
@@ -28,7 +29,16 @@ const Phonebook = () => {
         <Container>
             <AppBar />
 
-            <Suspense fallback={<p>Загрузка...</p>}>
+            <Suspense
+                fallback={
+                    <Loader
+                        type="ThreeDots"
+                        color="#ffc966"
+                        width={100}
+                        timeout={0}
+                    />
+                }
+            >
                 <Switch>
                     <PublicRoute exact path={HOME} component={HomeView} />
                     <PublicRoute
