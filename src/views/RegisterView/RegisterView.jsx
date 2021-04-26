@@ -26,8 +26,8 @@ class RegisterView extends Component {
         const { name, email, password } = this.state;
 
         return (
-            <div>
-                <h1 className={css.title}>Страница регистрации</h1>
+            <div className={css.registerView}>
+                <h1 className={css.title}>Заполните для регистрации</h1>
 
                 <form
                     onSubmit={this.handleSubmit}
@@ -35,36 +35,44 @@ class RegisterView extends Component {
                     autoComplete="off"
                 >
                     <label className={css.label}>
-                        Имя
+                        <span className={css.labelText}>Имя</span>
                         <input
                             type="text"
                             name="name"
                             value={name}
                             onChange={this.handleChange}
+                            className={css.input}
+                            required
                         />
                     </label>
 
                     <label className={css.label}>
-                        Почта
+                        <span className={css.labelText}>Почта</span>
                         <input
                             type="email"
                             name="email"
                             value={email}
                             onChange={this.handleChange}
+                            className={css.input}
+                            required
                         />
                     </label>
 
                     <label className={css.label}>
-                        Пароль
+                        <span className={css.labelText}>Пароль</span>
                         <input
                             type="password"
                             name="password"
                             value={password}
                             onChange={this.handleChange}
+                            className={css.input}
+                            required
                         />
                     </label>
 
-                    <button type="submit">Зарегистрироваться</button>
+                    <button type="submit" className={css.registerBtn}>
+                        Зарегистрироваться
+                    </button>
                 </form>
             </div>
         );
