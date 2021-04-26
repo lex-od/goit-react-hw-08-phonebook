@@ -3,7 +3,7 @@ import css from './ContactItem.module.scss';
 
 const ContactItem = ({ id, name, number, onBtnClick }) => (
     <>
-        <span className={css.name}>{name}: </span>
+        <span className={css.name}>{name}:</span>
         <span className={css.number}>{number}</span>
         <button
             className={css.deleteContact}

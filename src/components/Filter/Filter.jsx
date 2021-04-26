@@ -4,15 +4,14 @@ import css from './Filter.module.scss';
 import { contactsSls, contactsActs } from '../../redux/contacts';
 
 const Filter = ({ value, dispChange }) => (
-    <label className={css.label}>
-        Найти контакты по имени
-        <input
-            type="text"
-            name="filter"
-            value={value}
-            onChange={e => dispChange(e.target.value)}
-        />
-    </label>
+    <input
+        type="text"
+        name="filter"
+        value={value}
+        onChange={e => dispChange(e.target.value)}
+        placeholder="Поиск..."
+        className={css.input}
+    />
 );
 
 Filter.propTypes = {

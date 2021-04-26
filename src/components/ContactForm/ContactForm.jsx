@@ -52,31 +52,29 @@ class ContactForm extends Component {
         const { name, number } = this.state;
 
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label className={css.label}>
-                    Имя
-                    <input
-                        type="text"
-                        name="name"
-                        pattern={config.INPUT_NAME_PATTERN}
-                        title={config.INPUT_NAME_TITLE}
-                        value={name}
-                        onChange={this.handleChange}
-                        required
-                    />
-                </label>
-                <label className={css.label}>
-                    Телефон
-                    <input
-                        type="tel"
-                        name="number"
-                        pattern={config.INPUT_TEL_PATTERN}
-                        title={config.INPUT_TEL_TITLE}
-                        value={number}
-                        onChange={this.handleChange}
-                        required
-                    />
-                </label>
+            <form onSubmit={this.handleSubmit} autoComplete="off">
+                <input
+                    type="text"
+                    name="name"
+                    pattern={config.INPUT_NAME_PATTERN}
+                    title={config.INPUT_NAME_TITLE}
+                    value={name}
+                    onChange={this.handleChange}
+                    required
+                    className={css.input}
+                    placeholder="Имя..."
+                />
+                <input
+                    type="tel"
+                    name="number"
+                    pattern={config.INPUT_TEL_PATTERN}
+                    title={config.INPUT_TEL_TITLE}
+                    value={number}
+                    onChange={this.handleChange}
+                    required
+                    className={css.input}
+                    placeholder="Телефон..."
+                />
                 <button className={css.addContact}>Добавить контакт</button>
             </form>
         );

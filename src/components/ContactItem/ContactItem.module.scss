@@ -1,24 +1,30 @@
 .name {
-    font-size: 18px;
+    margin-right: 10px;
+
+    font-size: 20px;
+    font-weight: 500;
 }
 
 .number {
-    margin-right: 15px;
-
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .deleteContact {
-    padding: 1px 2px;
+    position: absolute;
+    top: 0;
+    right: 0;
 
-    background-color: #fff;
-    border: 1px solid #08d82b;
-    border-radius: 3px;
+    height: 100%;
+    padding: 3px;
+
+    background-color: #e6d7ae;
+    border: none;
     cursor: pointer;
 
     font-size: 12px;
+    font-weight: 500;
 
     &:hover {
-        background-color: #f3fff0;
+        background-color: #ffc966;
     }
 }

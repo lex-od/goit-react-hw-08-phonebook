@@ -5,7 +5,7 @@ import ContactItem from '../ContactItem';
 import { contactsSls, contactsOps } from '../../redux/contacts';
 
 const ContactList = ({ contacts, dispItemBtnClick }) => (
-    <ul>
+    <ul className={css.contactList}>
         {contacts.map(({ id, name, number }) => (
             <li className={css.contactItem} key={id}>
                 <ContactItem

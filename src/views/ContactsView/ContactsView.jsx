@@ -27,7 +27,7 @@ const ContactsView = ({ isLoading, error }) => {
             {isLoading && (
                 <Loader
                     type="ThreeDots"
-                    color="#ffcf4d"
+                    color="#ffc966"
                     // height={50}
                     width={100}
                     timeout={0}
